@@ -1,87 +1,95 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+    margin: 0;
 }
 
 .box {
-  height: 100vh;
-  width: calc(100% - 2px);
-  position: absolute;
+    height: 100vh;
+    width: calc(100% - 2px);
+    position: absolute;
 }
 
 .pick-teams {
-  background: linear-gradient(
-    to bottom,
-    rgb(8, 10, 10) 0%,
-    #0c0b03 50%,
-    rgb(238, 50, 3) 100%
-  );
-  display: flex;
-  flex-direction: column;
-  padding-top: 2%;
-  overflow: auto;
+    background: linear-gradient(
+            to bottom,
+            rgb(8, 10, 10) 0%,
+            #0c0b03 50%,
+            rgb(238, 50, 3) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    padding-top: 2%;
+    overflow: auto;
 }
 
 .reset-cont {
-  position: absolute;
-  right: 4%;
+    position: absolute;
+    right: 4%;
 }
 
 .full-spread-info-cont {
-  display: flex;
-  justify-content: center;
-  padding: 1rem 4rem 8rem 4rem;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 4rem 8rem 4rem;
 }
 
 .header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .header > h1 {
-  margin: 1%;
+    margin: 1%;
 }
 
 .white-text {
-  margin: 0;
-  text-align: center;
-  text-shadow: 2px 2px black;
-  color: white;
+    margin: 0;
+    text-align: center;
+    text-shadow: 2px 2px black;
+    color: white;
 }
 
 .column-cont > h2 {
-  margin: 0 2rem 0 2rem;
-  min-height: 2rem;
+    margin: 0 2rem 0 2rem;
+    min-height: 2rem;
 }
 
 .input-options-cont {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .input-options-cont > div {
-  display: flex;
-  align-items: center;
-  min-height: 3rem;
+    display: flex;
+    align-items: center;
+    min-height: 3rem;
 }
 
 .spread-cont > input {
-  width: 2rem;
+    width: 2rem;
 }
 
 .rank-cont > input {
-  width: 2rem;
+    width: 2rem;
 }
 
 .center {
-  text-align: center;
+    text-align: center;
 }
 
 .bold {
-  font-weight: bolder;
+    font-weight: bolder;
+}
+
+.missing-spread {
+    display: flex;
+    justify-content: center;
+    height: 5rem;
+    color: red;
+    font-size: 2rem
 }
