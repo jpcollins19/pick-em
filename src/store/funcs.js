@@ -150,26 +150,28 @@ const establishTeams = ( teamArray ) => {
 
 const backfillTeamNames = ( teamArray ) => {
 
-    const byah = teams
+    const teamNames = teamArray
+    .filter(team => team.team)
+    .map(team => team.team)
 
-    return [
-        {team: "boys", spread: "8", rank: 5, locked: true},
-        {team: '9ers', spread: "3.5", rank: null, locked: false},
-        {team: "fins", spread: "5.5", rank: 7, locked: true},
-        {team: '9ers', spread: "3", rank: 8, locked: true},
-        {team: "hawks", spread: "10.5", rank: null, locked: false},
-        {team: "lions", spread: "14.5", rank: null, locked: false},
-        {team: '9ers', spread: "4", rank: null, locked: false},
-        {team: "jags", spread: "7", rank: null, locked: false},
-        {team: "steelers", spread: "3.5", rank: null, locked: false},
-        {team: "broncos", spread: "16.5", rank: null, locked: false},
-        {team: "giants", spread: "6", rank: null, locked: false},
-        {team: "raiders", spread: "9", rank: null, locked: false},
-        {team: '9ers', spread: "5.5", rank: null, locked: false},
-        {team: "bears", spread: "3.5", rank: null, locked: false},
-        {team: "texans", spread: "3", rank: null, locked: false},
-    ];
+    let teamNameToUse = ''
 
+    for (let i = 0; i < teams.length; i++) {
+        const team = teams[i]
+
+        if (!teamNames.includes(team)) {
+            teamNameToUse = team
+            break;
+        }
+
+    }
+
+    return teamArray.map(( team ) => {
+        if (!team.team) {
+            return {...team, team: teamNameToUse};
+        }
+        return team;
+    });
 };
 
 const isMissingSpreadCheck = ( teamArray ) => {

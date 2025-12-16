@@ -4,7 +4,7 @@ import {
     addTeam,
     numbers,
     pickTeamsColumns,
-    establishTeams, isMissingTeamCheck, isMissingSpreadCheck,
+    establishTeams, isMissingTeamCheck, isMissingSpreadCheck, backfillTeamNames,
 } from "../../store";
 import Loading from "../Misc/Loading";
 import Button from "../Misc/Button";
@@ -65,27 +65,14 @@ const Pick_Teams_Page = () => {
                 [key]: keyResult
             }
         }));
-
-        console.log('onChange - setObj', pickDataObj)
     };
 
     const onSubmit = async ( evt ) => {
         evt.preventDefault();
 
-        //TODO" joe - write code for backfillTeamNames
-        //TODO" joe - incorporate backfillTeamNames
-
-        //TODO" joe - do lots of scenario testing
-
-        //TODO" joe - search for all todos
-
-        //TODO" joe - remove console.logs
-
         const fullPickDataObjAsArray = Object.values(pickDataObj);
 
         const teams = establishTeams(fullPickDataObjAsArray)
-
-        console.log('onSubmit - teams', teams)
 
         if (isMissingSpreadCheck(teams)) {
             return setMissingSpread(true)
@@ -97,7 +84,7 @@ const Pick_Teams_Page = () => {
         }
 
         try {
-            teams.forEach(team => dispatch(addTeam(team)))
+            backfillTeamNames(teams).forEach(team => dispatch(addTeam(team)))
             evt.target.reset();
         } catch (err) {
             console.log(err);
